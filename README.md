@@ -6,11 +6,13 @@ Chương trình này sử dụng ffmpeg để chụp ảnh từ luồng RTSP c�
 
 2. Cấu Trúc Dự Án
 
-: Chụp ảnh từ camera RTSP và lưu vào thư mục frames.
-
-: Gửi trạng thái nhận diện người (yes/no) đến một server Flask.
-
-: Sử dụng Mediapipe để phát hiện người trong ảnh.
+/detect-human
+│── main.py                 # Chạy chương trình chính
+│── config.py               # Chứa cấu hình (RTSP, server URL)
+│── capture.py              # Chụp ảnh từ RTSP
+│── detection.py            # Nhận diện người với MediaPipe
+│── server.py               # Gửi trạng thái đến server
+│── requirements.txt        # Danh sách thư viện cần cài đặt               
 
 3. Hướng Dẫn Cài Đặt
 
@@ -34,17 +36,19 @@ sudo apt update && sudo apt install ffmpeg
 
 c. Cấu hình RTSP và URL_SERVER
 
-Cập nhật biến RTSP_URL với đường dẫn luồng RTSP :
+Cập nhật biến RTSP_URL với đường dẫn luồng RTSP trong config.py:
 RTSP_URL = "YOUR_URL"
 URL_SERVER = "SERVER_URL"
 d. Chạy chương trình
 
 python app.py
 
-4. Lưu Ý
+4. Mở rộng
 
 Đảm bảo ffmpeg đã được cài đặt và có thể chạy từ terminal.
 
 Kiểm tra đường dẫn RTSP có chính xác không.
+
+Có thể mở rộng các phương pháp nhận diện khác bằng cách thay đổi mô hình trong detect.py
 
 
